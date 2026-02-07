@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Rose Day Shubhu 🌹</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #ffb6c1, #ffc0cb, #ffd6e8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Segoe UI', sans-serif;
+        overflow: hidden;
+    }
+
+    .card {
+        background: white;
+        padding: 28px;
+        border-radius: 22px;
+        text-align: center;
+        width: 350px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+        animation: fadeIn 2s ease;
+        z-index: 1;
+    }
+
+    h1 {
+        color: #c2185b;
+        margin-bottom: 5px;
+    }
+
+    h2 {
+        color: #ad1457;
+        margin-top: 0;
+        font-weight: normal;
+    }
+
+    .photo {
+        margin: 16px 0;
+        border-radius: 18px;
+        overflow: hidden;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .photo img {
+        width: 100%;
+        border-radius: 18px;
+        animation: zoom 8s ease-in-out infinite;
+    }
+
+    .hint {
+        font-size: 12px;
+        color: #ad1457;
+        margin-top: 5px;
+    }
+
+    p {
+        color: #555;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .secret {
+        display: none;
+        margin-top: 18px;
+        color: #880e4f;
+        font-weight: bold;
+        animation: fadeIn 1.5s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(15px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes zoom {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+
+    .heart {
+        position: absolute;
+        color: #ff4f81;
+        font-size: 18px;
+        animation: floatUp linear infinite;
+        opacity: 0.7;
+    }
+
+    @keyframes floatUp {
+        from { transform: translateY(100vh); }
+        to { transform: translateY(-10vh); }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>Happy Rose Day 🌹</h1>
+    <h2>My Shubhu 💕</h2>
+
+    <!-- CLICKABLE PHOTO -->
+    <div class="photo" onclick="unlockSecret()">
+        <img src="hand.jpeg" alt="Our hands holding together">
+    </div>
+    <div class="hint">🤍 Tap our hands</div>
+
+    <p>
+        Some things don’t need words…<br>
+        just a touch 🤍
+    </p>
+
+    <!-- SECRET MESSAGE -->
+    <div class="secret" id="secretMessage">
+        💌 Shubhra,<br><br>
+        Every time our hands meet,<br>
+        the world feels quieter and safer.<br><br>
+        No matter what comes next,<br>
+        I choose you — every single time 🌸🌹<br><br>
+        — Yours, always 💖
+    </div>
+</div>
+
+<script>
+    let unlocked = false;
+
+    function unlockSecret() {
+        if (!unlocked) {
+            document.getElementById("secretMessage").style.display = "block";
+            unlocked = true;
+        } else {
+            alert("Still holding on… just like us 💗");
+        }
+    }
+
+    for (let i = 0; i < 16; i++) {
+        let heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "💗";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 4 + 6) + "s";
+        document.body.appendChild(heart);
+    }
+</script>
+
+</body>
+</html>
